@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
+import Thumbnail from "../components/Thumbnail"
 import API from "../utils/API";
 
 class Detail extends Component {
@@ -28,7 +29,13 @@ class Detail extends Component {
           </Col>
         </Row>
         <Row>
-          <Col size="md-10 md-offset-1">
+          <Col size="md-2">
+            <Thumbnail
+              title={this.state.book.title}
+              image={this.state.book.image}
+            />
+          </Col>
+          <Col size="md-10">
             <article>
               <h1>Synopsis</h1>
               <p>{this.state.book.synopsis}</p>
@@ -37,7 +44,10 @@ class Detail extends Component {
         </Row>
         <Row>
           <Col size="md-2">
-            <Link to="/">← Back to Authors</Link>
+            <Link to="/">← Go to Search</Link>
+          </Col>
+          <Col size="md-2">
+            <Link to="/reading-list">← Go to Reading List</Link>
           </Col>
         </Row>
       </Container>

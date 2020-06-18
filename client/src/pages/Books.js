@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import SaveBtn from "../components/SaveBtn"
-import DeleteBtn from "../components/DeleteBtn";
+import {DeleteBtn, SaveBtn, LinkBtn} from "../components/Buttons";
 import Jumbotron from "../components/Jumbotron";
+import Thumbnail from "../components/Thumbnail";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
@@ -41,7 +41,7 @@ class Books extends Component {
       [name]: value
     });
   };
-  saveBook = (title,author,synopsis) => {
+  saveBook = (id,title,author,synopsis,image,link) => {
     let newAuthor = ""
     if (author==='undefined') {
       newAuthor = ""
@@ -49,9 +49,12 @@ class Books extends Component {
       newAuthor = author[0]
     }
     API.saveBook({
+      _id: id,
       title: title,
       author: newAuthor,
-      synopsis: synopsis
+      synopsis: synopsis,
+      image:image,
+      link:link
     })
       .then(res => this.loadBooks())
       .catch(err => console.log(err));
@@ -73,13 +76,18 @@ class Books extends Component {
         .catch(err => console.log(err));
     }
   };
+  goToLink = link => window.location.assign(link)
 
   render() {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6">
-            <form>
+          
+          <Col size="md-8">
+            <Jumbotron>
+              <h1>Search</h1>
+            </Jumbotron>
+            <form style={{marginBottom: 60}}>
               <Input
                 value={this.state.title}
                 onChange={this.handleInputChange}
@@ -99,27 +107,44 @@ class Books extends Component {
                 Submit Book
               </FormBtn>
             </form>
-            {this.state.books.length ? (
+            {this.state.searchBooks.length ? (
               <List>
                 {this.state.searchBooks.map(book => (
-                  <ListItem key={book.id}>
-                    <Link to={"/books/" + book.title}>
+                  <Row className="search-row" key={book.id}>
+                    <Col size="md-3">
+                      <Thumbnail
+                        title={book.title}
+                        image={book.image}
+                      />
                       <strong>
                         {book.title} by {book.author}
                       </strong>
-                    </Link>
-                    <SaveBtn onClick={() => this.saveBook(book.title, book.author, book.synopsis)} />
-                  </ListItem>
+                    </Col>
+                    <Col size="md-7">
+                      {book.synopsis}
+                    </Col>
+                    <Col size="md-2">
+                      <SaveBtn onClick={() => this.saveBook(
+                        book.id,
+                        book.title,
+                        book.author,
+                        book.synopsis,
+                        book.image,
+                        book.link)
+                      } />
+                      <LinkBtn onClick={() => this.goToLink(book.link)}/>
+
+                    </Col>
+                   
+                  </Row>
                 ))}
               </List>
             ) : (
-                <h3>No Results to Display</h3>
+                <h3>Enter Title and Author to Search</h3>
               )}
           </Col>
-          <Col size="md-6 sm-12">
-            <Jumbotron>
-              <h1>Books On My List</h1>
-            </Jumbotron>
+          <Col size="md-4 sm-12">
+            <h1>Current Reading List</h1>
             {this.state.books ? (
               <List>
                 {this.state.books.map(book => (
