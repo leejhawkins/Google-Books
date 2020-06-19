@@ -1,14 +1,12 @@
 import React from "react";
-import "./SaveBtn.css";
+import "./DeleteBtn.css";
 
 // The ...props means, spread all of the passed props onto this element
 // That way we don't have to define them all individually
-export function SaveBtn(props) {
+export function DeleteBtnLg(props) {
     return (
-        <span className="btn btn-info" {...props} role="button" tabIndex="0">
-            Add to Read List
+        <span className="btn btn-danger" {...props} role="button" tabIndex="0">
+            Remove from List
         </span>
     );
 }
-
-

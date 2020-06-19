@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { DeleteBtn, SaveBtn, LinkBtn } from "../components/Buttons";
+import { DeleteBtn, SaveBtn, LinkBtn,DeleteBtnLg } from "../components/Buttons";
 import Jumbotron from "../components/Jumbotron";
 import Thumbnail from "../components/Thumbnail";
 import API from "../utils/API";
@@ -56,9 +56,9 @@ class ReadingList extends Component {
                                         {book.synopsis}
                                     </Col>
                                     <Col size="md-2">
-                                        <DeleteBtn onClick={() => this.deleteBook(book._id)} />
+                                        
                                         <LinkBtn onClick={() => this.goToLink(book.link)} />
-
+                                        <DeleteBtnLg onClick={() => this.deleteBook(book._id)} />
                                     </Col>
 
                                 </Row>

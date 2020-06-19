@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import Thumbnail from "../components/Thumbnail"
+import { DeleteBtn, SaveBtn, LinkBtn, DeleteBtnLg} from "../components/Buttons"
 import API from "../utils/API";
 
 class Detail extends Component {
@@ -14,7 +15,12 @@ class Detail extends Component {
     API.getBook(id).then(res => this.setState({ book: res.data }))
       .catch(err => console.log(err));
   }
-
+  deleteBook = id => {
+    API.deleteBook(id)
+      .then(res => this.loadBooks())
+      .catch(err => console.log(err));
+  };
+  goToLink = link => window.location.assign(link)
 
   render() {
     return (
@@ -35,11 +41,15 @@ class Detail extends Component {
               image={this.state.book.image}
             />
           </Col>
-          <Col size="md-10">
+          <Col size="md-8">
             <article>
               <h1>Synopsis</h1>
               <p>{this.state.book.synopsis}</p>
             </article>
+          </Col>
+          <Col size="md-2">
+            <LinkBtn onClick={() => this.goToLink(this.state.book.link)} />
+            <DeleteBtnLg onClick={() => this.deleteBook(this.state.book._id)} />
           </Col>
         </Row>
         <Row>

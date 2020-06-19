@@ -2,4 +2,9 @@
   float: right;
   color: #e74944;
 }
+.btn-danger {
+  width: 80%;
+  float: right;
+  margin-bottom: 20px;
+}
 
