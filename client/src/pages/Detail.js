@@ -48,8 +48,8 @@ class Detail extends Component {
             </article>
           </Col>
           <Col size="md-2">
+            <DeleteBtn onClick={() => this.deleteBook(this.state.book._id)} />
             <LinkBtn onClick={() => this.goToLink(this.state.book.link)} />
-            <DeleteBtnLg onClick={() => this.deleteBook(this.state.book._id)} />
           </Col>
         </Row>
         <Row>

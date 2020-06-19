@@ -56,9 +56,9 @@ class ReadingList extends Component {
                                         {book.synopsis}
                                     </Col>
                                     <Col size="md-2">
-                                        
+                                        <DeleteBtn onClick={() => this.deleteBook(book._id)} />
                                         <LinkBtn onClick={() => this.goToLink(book.link)} />
-                                        <DeleteBtnLg onClick={() => this.deleteBook(book._id)} />
+                                        
                                     </Col>
 
                                 </Row>

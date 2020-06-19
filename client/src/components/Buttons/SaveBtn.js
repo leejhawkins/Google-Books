@@ -5,8 +5,8 @@ import "./SaveBtn.css";
 // That way we don't have to define them all individually
 export function SaveBtn(props) {
     return (
-        <span className="btn btn-info" {...props} role="button" tabIndex="0">
-            Add to Read List
+        <span {...props} role="button" tabIndex="0" style={{float:"right"}}>
+            Add<i class="material-icons">queue</i>
         </span>
     );
 }

@@ -4,8 +4,8 @@ import React from "react";
 // That way we don't have to define them all individually
 export function LinkBtn(props) {
     return (
-        <span className="btn btn-info" {...props} role="button">
-            Go to Link
+        <span {...props} role="button" style={{float:"right"}}>
+            Link <i class="material-icons">link</i>
         </span>
     );
 }

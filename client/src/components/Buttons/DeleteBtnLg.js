@@ -6,7 +6,7 @@ import "./DeleteBtn.css";
 export function DeleteBtnLg(props) {
     return (
         <span className="btn btn-danger" {...props} role="button" tabIndex="0">
-            Remove from List
+            Remove from List<i class="material-icons">remove_circle</i>
         </span>
     );
 }

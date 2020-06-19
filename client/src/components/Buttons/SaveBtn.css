@@ -1,5 +1,3 @@
-.btn-info {
-    float: right;
-    margin-bottom:20px;
-    width: 80%;
+.btn-link, .btn-save {
+    float:right;
 }

@@ -85,9 +85,9 @@ class Books extends Component {
           
           <Col size="md-8">
             <Jumbotron>
-              <h1>Search</h1>
+              <h1>Search<i class="material-icons" style={{ marginLeft: 20, fontSize: 40 }}>search</i></h1>
             </Jumbotron>
-            <form style={{marginBottom: 60}}>
+            <form style={{marginBottom:80}}>
               <Input
                 value={this.state.title}
                 onChange={this.handleInputChange}
@@ -104,7 +104,7 @@ class Books extends Component {
                 disabled={!(this.state.author && this.state.title)}
                 onClick={this.handleFormSubmit}
               >
-                Submit Book
+                Find Book
               </FormBtn>
             </form>
             {this.state.searchBooks.length ? (
