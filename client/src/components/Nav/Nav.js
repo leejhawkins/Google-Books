@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Nav() {
   return (
     <header className="navbar navbar-expand-lg navbar-dark flex-column flex-md-row bg-info">
-      <a class="navbar-brand mr-0 mr-md-2" href="/">My Reading List <i class="material-icons">bookmark</i> </a>
+      <a class="navbar-brand mr-0 mr-md-2" href="/">The Bookmark <i class="material-icons">bookmark_border</i>: My Reading List </a>
       <ul className="navbar-nav ml-md-auto" >
         <li className="nav-item">
           <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
