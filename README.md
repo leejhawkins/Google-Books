@@ -1,6 +1,8 @@
 # The Bookmark: My Reading List
 
-A full stack web application that allows a user to search for books by title and author and save books they would like to read to their reading list. 
+A full stack web application that allows a user to search for books by title and author and save books they would like to read to their reading list.
+
+### [Link to site](https://booksapp-lh.herokuapp.com/)
 
 ![Screen shot](client/src/images/search.jpg)
 
@@ -27,4 +29,3 @@ On the search page input a title and author to search for a book on the Google B
 * Mongoose ODM - Object model/Controllers
 * Materialize.CSS - styling and page layout
 
-### [Go to site](https://booksapp-lh.herokuapp.com/)
