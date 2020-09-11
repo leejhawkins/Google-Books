@@ -2,7 +2,7 @@
 
 A full stack web application that allows a user to search for books by title and author and save books they would like to read to their reading list.
 
-### [Link to site](https://booksapp-lh.herokuapp.com/)
+## [Link to site on Heroku](https://booksapp-lh.herokuapp.com/)
 
 
 
