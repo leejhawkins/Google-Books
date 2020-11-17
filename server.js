@@ -25,7 +25,7 @@ app.use(routes);
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://" + process.env.DB_USER + ":" + process.env.DB_PASS + "@ds143678.mlab.com:43678/heroku_b6hh732v",
+  "mongodb+srv://" + process.env.DB_USER + ":" + process.env.DB_PASS + "@cluster-b6hh732v.v4zdo.mongodb.net/heroku_b6hh732v?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
